@@ -1,0 +1,114 @@
+### Dia 1 - Básico ###
+
+1. O que será dado no curso (2 min)
+	- Básico geral
+	- Pacotes Numpy e Matplotlib
+	- Aplicações em Engenharia Civil
+	- Interfaces Gráficas
+
+2. Motivacional (5 min)
+	- O que é Python
+	- Quem usa Python
+	- Facilidade de Python
+	- Comunidade grande, ativa e criativa
+	- Grande quantidade de bibliotecas
+
+3. Como instalar Python e Módulos (5 min)
+	- Python puro 3.5
+	- Pip install numpy
+	- Pip install matplotlib
+	- PyQt
+
+4. Print (3 min)
+	- Abrir IDLE
+	- Mostrar IDLE Shell e Editor
+	- Print('hello world') em ambos
+
+5. Input (2 min)
+	- Exemplo do nome e idade
+
+6. Strings (10 min)
+	- O que é uma variável (caixa)
+	- Variáveis em Python não são fixas
+	- String armazena sequência de caracteres (texto)
+	- Strings são imutáveis
+	- s1 = 'Isso é uma string'
+	- Formatação de string
+		- %s
+		- s1 + s1
+		- .format()
+		- print(arg1, arg2, arg3)
+	- s1*3
+	- Slicing [start:stop:step]
+	- upper() / lower() / capitalize() / swapcase()
+
+7. Int/Float (10 min)
+	- ints são inteiros e floats são reais
+	- ints e floats são mutáveis (mas não importa)	
+	- i1 = 5
+	- f1 = 5.
+	- Mostrar print(f1, type(f1)) : type float
+	- Contas básicas no interpreter
+		- +
+		- -
+		- *
+		- /
+		- //
+		- %
+		- **
+	- Type() de operações entre ints e floats
+
+8. Lists/Tuples (15 min)
+	- T1 = (1, 2, 3, 4) / type()
+	- l1 = [1, 2, 3, 4] / type()
+	- Tuples NÃO são mutáveis
+	- Lists são
+	- list(t1)
+	- tuple(l1)
+	- len(l1)
+	- l1.index()
+	- l1.append() >>> MUITO IMPORTANTE!!!
+	- l1.pop() / não existe um t1.pop() pois este não é mutável
+	- l1.reverse() / também pode ser feito com slice
+	- Slice funciona igual a string
+	- Como lists são mutáveis vc pode alterar um elemento individual de l1
+	- Explicar lógica de funções e métodos para objetos (i)mutáveis
+	- range()
+	- tuple(range)
+
+9. Dictionaries (10 min)
+	- d1 = {'azul': 'blue', 'rosa': 'pink', 'preto': 'black'} / type()
+	- d1['azul']
+	- Utilidade de utilizar dicionários ao invés de listas
+	- d1.keys()
+	- d1.values()
+
+10. def function()/ lambda / if..elif..esle (25 min)
+	- O que é e pra que serve uma função
+		- Repetição
+		- Módulos
+	- Documentação
+		- Importância da documentação
+		- Como fazer documentação
+	- Função com argumentos padrões
+	- Lambda para funções simples
+	- Condicionais tornam funções mais úteis
+		- Gera a possibilidade de o computador tomar decisões
+		- Bifurcação no código
+	- Função com if
+
+11. For loop / While loop (18 min)
+	- For loop
+		- uso de range e range(len)
+	- While
+		- Diferença entre essa e o for
+		- TOMAR CUIDADO COM LOOPS INFINITOS
+	- Loops em listas ou tuples
+	- Loops em dicionários
+
+12. Exercícios (15 min)
+	- Print/input: nome, idade, matrícula e formatação
+	- listas: fazer duas listas de alunos/matrículas e imprimir formatado
+	- dict: fazer dict de aluno/matrículas e imprimir formatado
+	- def: somar números seguidos
+	- lambda: somar números seguidos
