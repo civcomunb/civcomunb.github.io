@@ -1,0 +1,1686 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Curso de Python - Dia 1</title>
+<meta name="author" content="(Mario Raul Freitas)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/solarized.css" id="theme"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+<script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Curso de Python - Dia 1</h1><h2 class="author">Mario Raul Freitas</h2><p class="date">Created: 2016-08-22 Mon 16:12</p>
+</section>
+
+<section>
+<section id="slide-orgheadline2">
+<h2 id="orgheadline2"><span class="section-number-2">1</span> Quem Somos Nós</h2>
+<div class="outline-text-2" id="text-1">
+</div></section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> CivCom</h3>
+
+<div class="figure">
+<p><img src="img/Quem Somos Nós/logo2_2016-08-06_17-14-32.png" alt="logo2_2016-08-06_17-14-32.png" />
+</p>
+</div>
+
+<p>
+Pesquisa, Cursos e Inovação
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline3">
+<h2 id="orgheadline3"><span class="section-number-2">2</span> O Que Será Dado no Curso</h2>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Como Instalar Python</td>
+<td class="org-left">Como Instalar Bibliotecas</td>
+</tr>
+
+<tr>
+<td class="org-left">Prints e Inputs</td>
+<td class="org-left">Strings</td>
+</tr>
+
+<tr>
+<td class="org-left">Ints e Floats</td>
+<td class="org-left">Lists e Tuples</td>
+</tr>
+
+<tr>
+<td class="org-left">Dictionaries</td>
+<td class="org-left">Funções</td>
+</tr>
+
+<tr>
+<td class="org-left">Control Flow</td>
+<td class="org-left">Loops</td>
+</tr>
+
+<tr>
+<td class="org-left">Numpy</td>
+<td class="org-left">Matplotlib</td>
+</tr>
+
+<tr>
+<td class="org-left">Object Oriented Programming</td>
+<td class="org-left">GUI e PyQt</td>
+</tr>
+</tbody>
+</table>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline12">
+<h2 id="orgheadline12"><span class="section-number-2">3</span> Porque Python?</h2>
+<p>
+Python é uma linguagem extremamente simples, mas ao mesmo tempo, muito poderas. Ela permite criar todo tipo de software, desde calculadoras a websites passando por jogos e aplicativos de celular.
+</p>
+
+<p>
+Python é grátis e possui uma comunidade extremamente ativa. Há uma inifinidade de bibliotecas que facilitam a sua vida.
+</p>
+
+<p>
+Python é utilizado por diversas empresas, como:
+</p>
+</section>
+<section id="slide-orgheadline4">
+<h3 id="orgheadline4"><span class="section-number-3">3.1</span> YouTube</h3>
+</section>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5"><span class="section-number-3">3.2</span> Dropbox</h3>
+</section>
+<section id="slide-orgheadline6">
+<h3 id="orgheadline6"><span class="section-number-3">3.3</span> Spotify</h3>
+</section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7"><span class="section-number-3">3.4</span> BitTorrent</h3>
+</section>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8"><span class="section-number-3">3.5</span> Reddit</h3>
+</section>
+<section id="slide-orgheadline9">
+<h3 id="orgheadline9"><span class="section-number-3">3.6</span> Serpro</h3>
+</section>
+<section id="slide-orgheadline10">
+<h3 id="orgheadline10"><span class="section-number-3">3.7</span> Frets on Fire (Guitar Hero Clone)</h3>
+</section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11"><span class="section-number-3">3.8</span> CivCom</h3>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline14">
+<h2 id="orgheadline14"><span class="section-number-2">4</span> Como Instalar Python</h2>
+<p>
+Baixe Python 3.5.2 do site: <a href="https://www.python.org/">https://www.python.org/</a>
+</p>
+
+<p>
+Alternativamente, você pode baixar o pacote miniconda de: <a href="http://conda.pydata.org/miniconda.html">http://conda.pydata.org/miniconda.html</a>
+</p>
+
+<p>
+Ou o pacote anaconda de: <a href="https://www.continuum.io/downloads">https://www.continuum.io/downloads</a>
+</p>
+
+<p>
+Recomendamos que você utilize a primeira opção
+</p>
+</section>
+<section id="slide-orgheadline13">
+<h3 id="orgheadline13"><span class="section-number-3">4.1</span> Tutorial Disponível Em Nosso Site</h3>
+<p>
+<a href="https://civcomunb.wordpress.com/2016/07/06/hello-world/#more-36">https://civcomunb.wordpress.com/2016/07/06/hello-world/#more-36</a>
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline17">
+<h2 id="orgheadline17"><span class="section-number-2">5</span> Pip</h2>
+<p>
+Pip é uma ferramenta do Python que serve para instalar bibliotecas disponíveis no PyPI (Python Package Index), que é um repositório oficial de biblioteca do Python.
+</p>
+
+<p>
+Para utiliza-la, basta abrir o prompt de comando (cmd) e digitar:
+</p>
+<pre class="example">
+pip install "nome_da_biblioteca"
+</pre>
+
+</section>
+<section id="slide-orgheadline15">
+<h3 id="orgheadline15"><span class="section-number-3">5.1</span> Instalar NumPy</h3>
+<p>
+Para instalar o NumPy digite no cmd:
+</p>
+<pre class="example">
+pip install numpy
+</pre>
+
+</section>
+<section id="slide-orgheadline16">
+<h3 id="orgheadline16"><span class="section-number-3">5.2</span> Intalar Matplotlib</h3>
+<p>
+Para instalar o Matplotlib digite no cmd:
+</p>
+<pre class="example">
+pip install matplotlib
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline18">
+<h2 id="orgheadline18"><span class="section-number-2">6</span> Instalar PyQt4</h2>
+<p>
+O PyQt 4 não está presente no PyPI e, portanto, não pode ser baixado pelo pip. No entanto, seu instalador pode ser  encontrado no link a seguir: <a href="https://www.riverbankcomputing.com/software/pyqt/download">https://www.riverbankcomputing.com/software/pyqt/download</a>
+</p>
+
+<p>
+Baixe e instale normalmente. Note que será necessário baixar a versão do PyQt compatível com o seu Python.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline19">
+<h2 id="orgheadline19"><span class="section-number-2">7</span> Recomendação de IDE</h2>
+<p>
+Caso deseje programar com muito mais facilidade, recomendamos que baixe o PyCharm no seguinte link: <a href="https://www.jetbrains.com/pycharm/download/#section=windows">https://www.jetbrains.com/pycharm/download/#section=windows</a>
+</p>
+
+<p>
+O PyCharm é uma IDE (Integrated Development Environment), ou seja, um editor para o seu código que contém ferramentas que irão tornar a programação mais fácil. Por exemplo: auto-completar, código de cores, acesso rápido à documentação, entre outros.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline20">
+<h2 id="orgheadline20"><span class="section-number-2">8</span> IDLE</h2>
+<p>
+O IDLE possui duas janelas. Um editor de texto, onde você pode escrever seus Scripts, e um interpretador, chamado IDLE Shell.
+</p>
+
+<p>
+Seus códigos sempre vão rodar em um interpretador.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline22">
+<h2 id="orgheadline22"><span class="section-number-2">9</span> Hello World</h2>
+<p>
+Com tudo instalado, agora podemos rodar nosso primeiro programa. Abra o IDLE, que deve aparecer no seu menu Iniciar após a instalção do Python. Agora digite o seguinte código e o rode:
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="python" >print('Hello, World!')
+</code></pre>
+</div>
+
+<pre class="example">
+Hello, World!
+</pre>
+
+
+</section>
+<section id="slide-orgheadline21">
+<h3 id="orgheadline21"><span class="section-number-3">9.1</span> Input</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >nome = input('Qual é o seu nome? ')
+print('Oi {}, como você está?'.format(nome))
+</code></pre>
+</div>
+
+<pre class="example">
+Oi Mario, como você está?
+</pre>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline24">
+<h2 id="orgheadline24"><span class="section-number-2">10</span> Variáveis</h2>
+<p>
+Variáveis são "caixas" que guardam um tipo de informação.
+</p>
+
+<p>
+Python irá criar uma "caixa" no momento em que você nomear e der valor a sua variável
+</p>
+
+<p>
+Junto ao conteúdo, o Python define o tipo de conteúdo e "cola uma etiqueta" na caixa para descrever o tipo
+</p>
+</section>
+<section id="slide-orgheadline23">
+<h3 id="orgheadline23"><span class="section-number-3">10.1</span> Regras para nomes de Variáveis</h3>
+<p>
+Uma palavra só, sem espaços;
+</p>
+
+<p>
+Deve começar com uma letra;
+</p>
+
+<p>
+Não pode ser uma palavra reservada do Python.
+</p>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline33">
+<h2 id="orgheadline33"><span class="section-number-2">11</span> Strings</h2>
+<p>
+String é uma variável que guarda uma série de caracteres, ou texto.
+</p>
+
+</section>
+<section id="slide-orgheadline25">
+<h3 id="orgheadline25"><span class="section-number-3">11.1</span> Definindo uma String</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >s1 = 'Isso é uma string'     # Isso é um comentário
+s2 = 'Outra string.'
+print(s1)
+print(s2)
+</code></pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; Isso é uma string
+Outra string.
+</pre>
+
+</section>
+<section id="slide-orgheadline26">
+<h3 id="orgheadline26"><span class="section-number-3">11.2</span> Concatenando Strings</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(s1+s2)
+print(s1 + '. ' + s2)
+</code></pre>
+</div>
+
+<pre class="example">
+Isso é uma stringOutra string.
+Isso é uma string. Outra string.
+</pre>
+
+
+</section>
+<section id="slide-orgheadline27">
+<h3 id="orgheadline27"><span class="section-number-3">11.3</span> Inserindo uma string dentro de outra com %s</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print('Texto: %s' % s1)
+print()
+print('Texto 1: %s\nTexto 2: %s' % (s1, s2))
+</code></pre>
+</div>
+
+<pre class="example">
+Texto: Isso é uma string
+
+Texto 1: Isso é uma string
+Texto 2: Outra string.
+</pre>
+
+</section>
+<section id="slide-orgheadline28">
+<h3 id="orgheadline28"><span class="section-number-3">11.4</span> Inserindo uma string dentro de outra com format</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print('Texto: {}'.format(s1))
+print()
+print('Texto 1: {}\nTexto 2: {}'.format(s1, s2))
+</code></pre>
+</div>
+
+<pre class="example">
+Texto: Isso é uma string
+
+Texto 1: Isso é uma string
+Texto 2: Outra string.
+</pre>
+
+
+</section>
+<section id="slide-orgheadline29">
+<h3 id="orgheadline29"><span class="section-number-3">11.5</span> Múltiplos argumentos em print</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print('Texto:', s1)
+</code></pre>
+</div>
+
+<pre class="example">
+Texto: Isso é uma string
+</pre>
+
+</section>
+<section id="slide-orgheadline30">
+<h3 id="orgheadline30"><span class="section-number-3">11.6</span> Métodos de Capitalização</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(s2.upper())
+print(s2.lower())
+print(s2.capitalize())
+print(s2.swapcase())
+</code></pre>
+</div>
+
+<pre class="example">
+OUTRA STRING.
+outra string.
+Outra string.
+oUTRA STRING.
+</pre>
+</section>
+<section id="slide-orgheadline31">
+<h3 id="orgheadline31"><span class="section-number-3">11.7</span> Exercício</h3>
+<p>
+Escreva um programa que pede o nome de 3 alunos (input: str) e os salva em 3 variáveis distintas (aluno1, aluno2, aluno3). Em seguida, faça com que o programa imprima os 3 nomes seguindo a formatação mostrada abaixo: 
+</p>
+
+<pre class="example">
+Aluno
+aluno1
+aluno2
+aluno3
+</pre>
+
+<p>
+Dica: Utilizar \n dentro de uma string pula uma linha no print (como um Enter). Alternativamente, use múltiplos prints.
+</p>
+</section>
+<section id="slide-orgheadline32">
+<h3 id="orgheadline32"><span class="section-number-3">11.8</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >aluno1 = input('Digite o nome do 1o aluno: ')
+aluno2 = input('Digite o nome do 2o aluno: ')
+aluno3 = input('Digite o nome do 3o aluno: ')
+
+print('Aluno')
+print(aluno1)
+print(aluno2)
+print(aluno3)
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline45">
+<h2 id="orgheadline45"><span class="section-number-2">12</span> Ints e Floats</h2>
+<p>
+Ints são números inteiros e Floats são números reais. Operações entre ints e floats sempre resultam em floats. Divisão sempre resulta em float.
+</p>
+</section>
+<section id="slide-orgheadline34">
+<h3 id="orgheadline34"><span class="section-number-3">12.1</span> Definindo um Int</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >i1 = 5
+i2 = 3
+print(i1, type(i1))
+</code></pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; 5 &lt;class 'int'&gt;
+</pre>
+</section>
+<section id="slide-orgheadline35">
+<h3 id="orgheadline35"><span class="section-number-3">12.2</span> Definindo um Float</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >f1 = 5.
+f2 = 3.0
+print(f1, type(f1))
+</code></pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; 5.0 &lt;class 'float'&gt;
+</pre>
+</section>
+<section id="slide-orgheadline36">
+<h3 id="orgheadline36"><span class="section-number-3">12.3</span> Operações - Soma e Subtração</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(i1+i2)
+print(i1-i2) 
+print(i1+f1)
+</code></pre>
+</div>
+
+<pre class="example">
+8
+2
+10.0
+</pre>
+</section>
+<section id="slide-orgheadline37">
+<h3 id="orgheadline37"><span class="section-number-3">12.4</span> Operações - Multiplicação</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(5*3, type(5*3)) 
+print(5*0.2, type(5*0.2))
+</code></pre>
+</div>
+
+<pre class="example">
+15 &lt;class 'int'&gt;
+1.0 &lt;class 'float'&gt;
+</pre>
+
+</section>
+<section id="slide-orgheadline38">
+<h3 id="orgheadline38"><span class="section-number-3">12.5</span> Operações - Divisão Real</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(5/3, type(5/3))
+print(6/3, type(6/3))
+</code></pre>
+</div>
+
+<pre class="example">
+1.6666666666666667 &lt;class 'float'&gt;
+2.0 &lt;class 'float'&gt;
+</pre>
+</section>
+<section id="slide-orgheadline39">
+<h3 id="orgheadline39"><span class="section-number-3">12.6</span> Operações - Divisão Inteira</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(11//3, type(11//3))
+print(11%3, type(11%3))
+</code></pre>
+</div>
+
+<pre class="example">
+3 &lt;class 'int'&gt;
+2 &lt;class 'int'&gt;
+</pre>
+
+</section>
+<section id="slide-orgheadline40">
+<h3 id="orgheadline40"><span class="section-number-3">12.7</span> Operações - Arredondamentos</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(int(11/3))
+print(round(11/3))
+
+from math import ceil
+print(ceil(10/3))
+</code></pre>
+</div>
+
+<pre class="example">
+3
+4
+&gt;&gt;&gt; &gt;&gt;&gt; 4
+</pre>
+
+</section>
+<section id="slide-orgheadline41">
+<h3 id="orgheadline41"><span class="section-number-3">12.8</span> Operações - Exponenciação</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(3**2)
+</code></pre>
+</div>
+
+<pre class="example">
+9
+</pre>
+</section>
+<section id="slide-orgheadline42">
+<h3 id="orgheadline42"><span class="section-number-3">12.9</span> Operações - Radiciação</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >from math import sqrt
+print(sqrt(4))
+</code></pre>
+</div>
+
+<pre class="example">
+2.0
+</pre>
+</section>
+<section id="slide-orgheadline43">
+<h3 id="orgheadline43"><span class="section-number-3">12.10</span> Exercício</h3>
+<p>
+Adicione a seu programa a seguinte funcionalidade: pedir a matrícula (int) e nota (float) de 3 alunos e salvar em 6 variáveis distintas (mat1, mat2 ,mat3 e nota1, nota2, nota3). Em seguida, faça com que o programa imprima os nomes, matrículas e notas formatados da seguinte forma: 
+</p>
+<pre class="example">
+Aluno      Matrícula    Nota
+aluno1     mat1         nota1
+aluno2     mat2         nota2
+aluno3     mat3         nota3
+</pre>
+
+<p>
+Dica: input() sempre returna uma string. Para obter int use int(input()) e para obter um float use float(input())
+</p>
+</section>
+<section id="slide-orgheadline44">
+<h3 id="orgheadline44"><span class="section-number-3">12.11</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >mat1 = int(input('Matrícula 1: '))
+mat2 = int(input('Matrícula 2: '))
+mat3 = int(input('Matrícula 3: '))
+
+nota1 = float(input('Nota 1: '))
+nota2 = float(input('Nota 2: '))
+nota3 = float(input('Nota 3: '))
+
+print('\nAluno\tMatrícula\tNota')
+print('{}\t{}\t\t{}'.format(aluno1, mat1, nota1))
+print('{}\t{}\t\t{}'.format(aluno2, mat2, nota2))
+print('{}\t{}\t\t{}'.format(aluno3, mat3, nota3))
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline58">
+<h2 id="orgheadline58"><span class="section-number-2">13</span> Lists e Tuples</h2>
+<p>
+Lists e Tuples são sequências de variáveis separadas por vírgulas armazendas em uma única variável. 
+</p>
+
+<p>
+Lists são mutáveis, enquanto tuples são imutáveis.
+</p>
+
+<p>
+Apesar de terem um uso mais limitado, tuples são mais rápidas do que lists e podem ser necessárias em certas aplicações.
+</p>
+</section>
+<section id="slide-orgheadline46">
+<h3 id="orgheadline46"><span class="section-number-3">13.1</span> Definindo um tuple</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >t1 = (0, 1, 2, 3)
+t2 = ('a', 'b', 'c')
+print(t1, type(t1))
+</code></pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; (0, 1, 2, 3) &lt;class 'tuple'&gt;
+</pre>
+
+</section>
+<section id="slide-orgheadline47">
+<h3 id="orgheadline47"><span class="section-number-3">13.2</span> Definindo uma list</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >l1 = [0, 1, 2, 3]
+l2 = ['a', 'b', 'c']
+print(l2, type(l2))
+</code></pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; ['a', 'b', 'c'] &lt;class 'list'&gt;
+</pre>
+</section>
+<section id="slide-orgheadline48">
+<h3 id="orgheadline48"><span class="section-number-3">13.3</span> Transformando um no outro</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(tuple(l2), type(tuple(l2)))
+print(list(t1), type(list(t1)))
+</code></pre>
+</div>
+
+<pre class="example">
+('a', 'b', 'c') &lt;class 'tuple'&gt;
+[0, 1, 2, 3] &lt;class 'list'&gt;
+</pre>
+</section>
+<section id="slide-orgheadline49">
+<h3 id="orgheadline49"><span class="section-number-3">13.4</span> Slicing</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># l2 = ['a', 'b', 'c']
+print(l2[1])
+print(l2[-1])
+</code></pre>
+</div>
+
+<pre class="example">
+b
+c
+</pre>
+
+<div class="org-src-container">
+
+<pre><code class="python" >#l1 = [0, 1, 2, 3]
+print(t1[0:2])
+print(l1[0:-1])
+print('String aceita slice'[0:10])
+</code></pre>
+</div>
+
+<pre class="example">
+(0, 1)
+[0, 1, 2]
+String ace
+</pre>
+
+<div class="org-src-container">
+
+<pre><code class="python" >print('String aceita slice'[0:10:2])
+print('String aceita slice'[::-1])
+</code></pre>
+</div>
+
+<pre class="example">
+Srn c
+ecils atieca gnirtS
+</pre>
+
+
+</section>
+<section id="slide-orgheadline50">
+<h3 id="orgheadline50"><span class="section-number-3">13.5</span> Fazendo Alterações com Slicing</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >l2[1] = 'h'
+print(l2)
+</code></pre>
+</div>
+
+<pre class="example">
+['a', 'h', 'c']
+</pre>
+</section>
+<section id="slide-orgheadline51">
+<h3 id="orgheadline51"><span class="section-number-3">13.6</span> Métodos de Listas</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(t2.index('c'))
+
+l1.append(4)
+print(l1)
+</code></pre>
+</div>
+
+<pre class="example">
+2
+&gt;&gt;&gt; &gt;&gt;&gt; [0, 1, 2, 3, 4]
+</pre>
+
+</section>
+<section id="slide-orgheadline52">
+<h3 id="orgheadline52"><span class="section-number-3">13.7</span> Comprimento</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(len(t1))
+print(len(l2)) 
+print(len('Strings têm comprimento'))
+</code></pre>
+</div>
+
+<pre class="example">
+4
+3
+24
+</pre>
+</section>
+<section id="slide-orgheadline53">
+<h3 id="orgheadline53"><span class="section-number-3">13.8</span> Enumerate e Zip</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >alunos = ['João', 'Maria', 'Carlos']
+notas = [10, 6, 8]
+
+print(enumerate(alunos))
+print(list(enumerate(alunos)))
+
+print(zip(alunos, notas))
+print(list(zip(alunos, notas)))
+</code></pre>
+</div>
+
+<pre class="example">
+&lt;enumerate object at 0x00000000011D8F78&gt;
+[(0, 'João'), (1, 'Maria'), (2, 'Carlos')]
+&lt;zip object at 0x00000000011DB508&gt;
+[('João', 10), ('Maria', 6), ('Carlos', 8)]
+</pre>
+
+</section>
+<section id="slide-orgheadline54">
+<h3 id="orgheadline54"><span class="section-number-3">13.9</span> Range</h3>
+<p>
+Range é um outro tipo de variável que se parece com Tuple. Você pode gerar um range utilizando a função range(). Ela pode ser usada como range(n) ou range(n<sub>i</sub>, n<sub>f</sub>, passo). Podemos transformar o range diretamente em tuple para trabalhar com algo mais familiar.
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="python" >print(range(3))
+print(tuple(range(3)))  
+print(tuple(range(2, 12, 2)))
+</code></pre>
+</div>
+
+<pre class="example">
+range(0, 3)
+(0, 1, 2)
+(2, 4, 6, 8, 10)
+</pre>
+</section>
+<section id="slide-orgheadline55">
+<h3 id="orgheadline55"><span class="section-number-3">13.10</span> Lista de Listas (ou tuples)</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >a = [[1, 2, 3], [4, 5, 6], [7, 8 ,9]]
+
+print(a[1])
+print(a[1][2])
+print(sum(a[1]))
+</code></pre>
+</div>
+
+<pre class="example">
+[4, 5, 6]
+6
+15
+</pre>
+
+</section>
+<section id="slide-orgheadline56">
+<h3 id="orgheadline56"><span class="section-number-3">13.11</span> Exercício</h3>
+<p>
+Utilize os dados a seguir e crie uma lista de nomes, uma lista de  matrículas e uma lista de notas. A lista de notas será uma lista de listas em que a lista interna possui 3 elementos. Calcule a média de notas de cada aluno e imprima segundo a formatação abaixo:
+</p>
+<pre class="example">
+Alunos: Alice, Beatriz, Carlos
+Matrículas: 1, 2, 3
+Notas:
+  - Alice: 10, 7.5, 8.3
+  - Beatriz: 8.8, 5.6, 5.0
+  - Carlos: 3.4, 6.6, 7.7
+</pre>
+
+<pre class="example">
+Aluno    Matrícula    Média
+Alice    1            M1
+Beatriz  2            M2
+Carlos   3            M3
+</pre>
+
+<p>
+Dica: utilize as funções sum()e len() e o método append(). Guarde as médias em uma nova lista.
+</p>
+</section>
+<section id="slide-orgheadline57">
+<h3 id="orgheadline57"><span class="section-number-3">13.12</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >alunos = ['Alice', 'Beatriz', 'Carlos']
+mats = [1, 2, 3]
+notas = [[10, 7.5, 8.3], [8.8, 5.6, 5.0], [3.4, 6.6, 7.7]]
+
+medias = []
+medias.append(sum(notas[0])/len(notas[0]))
+medias.append(sum(notas[1])/len(notas[1]))
+medias.append(sum(notas[2])/len(notas[2]))
+
+print('Alunos\t\tMatrícula\tMédia')
+print('{}\t\t{}\t\t{:.1f}'.format(alunos[0], mats[0], medias[0]))
+print('{}\t\t{}\t\t{:.1f}'.format(alunos[1], mats[1], medias[1]))
+print('{}\t\t{}\t\t{:.1f}'.format(alunos[2], mats[2], medias[2]))
+</code></pre>
+</div>
+
+<pre class="example">
+Alunos          Matrícula       Média
+Alice           1               8.6
+Beatriz         2               6.5
+Carlos          3               5.9
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline65">
+<h2 id="orgheadline65"><span class="section-number-2">14</span> Dictionaries</h2>
+<p>
+Dicionários são uma espécie de lista desorganizada que possuem a seguinte estrutura {chave: valor}.
+</p>
+
+<p>
+Dicionários são objetos mutáveis e desorganizados.
+</p>
+
+<p>
+A ordem em que os itens aparecem ao dar print é "aleatória".
+</p>
+</section>
+<section id="slide-orgheadline59">
+<h3 id="orgheadline59"><span class="section-number-3">14.1</span> Definindo um dicionário</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >d1 = {'azul': 'blue', 'rosa': 'pink', 'preto': 'black'}
+d2 = {'banana': 1, 'uva': 3, 'morango': 6}
+d3 = {'banana': 4, 'uva': 1, 'pera': 12}
+print(d1, type(d1))
+</code></pre>
+</div>
+
+<pre class="example">
+&gt;&gt;&gt; &gt;&gt;&gt; {'rosa': 'pink', 'azul': 'blue', 'preto': 'black'} &lt;class 'dict'&gt;
+</pre>
+</section>
+<section id="slide-orgheadline60">
+<h3 id="orgheadline60"><span class="section-number-3">14.2</span> Acessando um Dicionário</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(d1['azul']) 
+print(d2['banana'])
+</code></pre>
+</div>
+
+<pre class="example">
+blue
+1
+</pre>
+
+<div class="org-src-container">
+
+<pre><code class="python" >item = input('Qual produto você deseja consultar o estoque? ')
+print(d2[item], item + '(s)', 'no estoque')
+</code></pre>
+</div>
+
+
+</section>
+<section id="slide-orgheadline61">
+<h3 id="orgheadline61"><span class="section-number-3">14.3</span> Chaves e Valores</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(d2.keys()) 
+print(d2.values()) 
+print(d2.items())
+</code></pre>
+</div>
+
+<pre class="example">
+dict_keys(['uva', 'morango', 'banana'])
+dict_values([3, 6, 1])
+dict_items([('uva', 3), ('morango', 6), ('banana', 1)])
+</pre>
+
+</section>
+<section id="slide-orgheadline62">
+<h3 id="orgheadline62"><span class="section-number-3">14.4</span> Alterando valores</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >d2['banana'] += 1
+# d2['banana'] = d2['banana'] + 1 
+print(d2)
+
+d2['suco'] = 1
+print(d2)
+</code></pre>
+</div>
+
+<pre class="example">
+... {'uva': 1, 'morango': 6, 'banana': 5, 'pera': 12}
+&gt;&gt;&gt; &gt;&gt;&gt; {'uva': 1, 'morango': 6, 'banana': 5, 'suco': 1, 'pera': 12}
+</pre>
+</section>
+<section id="slide-orgheadline63">
+<h3 id="orgheadline63"><span class="section-number-3">14.5</span> Exercício</h3>
+<p>
+Utilizando os resultados do exercício anterior, armazene os nomes e médias dos alunos como {chave:valor} de um dicionário. Em seguida implemente uma funcionalidade em que o programa pede o nome de um aluno e retorna a média dele.
+</p>
+
+<pre class="example">
+Aluno        Média
+Alice        8.6
+Beatriz      6.5
+Carlos       5.9
+</pre>
+
+<pre class="example">
+{aluno : média}
+print: A média de 'fulano' foi 'tanto'
+</pre>
+
+<p>
+Dica: Utilize input().
+</p>
+</section>
+<section id="slide-orgheadline64">
+<h3 id="orgheadline64"><span class="section-number-3">14.6</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >alunos = ['Alice', 'Beatriz', 'Carlos']
+medias = [8.6, 6.5, 5.9]
+
+d = {alunos[0]:medias[0], alunos[1]:medias[1], alunos[2]:medias[2]}
+nome = input('Digite o nome do aluno que deseja saber a média: ')
+
+print('A média de {} foi {}'.format(nome, d[nome]))
+</code></pre>
+</div>
+
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline78">
+<h2 id="orgheadline78"><span class="section-number-2">15</span> Funções e Condicionais</h2>
+<div class="outline-text-2" id="text-15">
+</div></section>
+<section id="slide-orgheadline66">
+<h3 id="orgheadline66"><span class="section-number-3">15.1</span> Funções</h3>
+<p>
+Funções são rotinas que tomam parâmetros de entrada, realizam um conjunto de operações e retornam um resultado. É importante resssaltar que todo e qualquer variável criada dentro da função não pode ser acessada fora dela.
+</p>
+
+<p>
+Argumentos são um sinônimo para parâmetros
+</p>
+</section>
+<section id="slide-orgheadline67">
+<h3 id="orgheadline67"><span class="section-number-3">15.2</span> Condicionais (Control Flow)</h3>
+<p>
+Condicionais são bifurcações no código, em que se a condiação for verdadeira, o programa irá realizar um conjunto de operações e se ela for falsa o programa avança para a próxima etapa. Pode-se definir outra condicional que é testada caso a primeira seja falsa. Ainda é possível adicionar uma rotina para o caso em que todas as condicionais anteriores sejam falsas.
+</p>
+</section>
+<section id="slide-orgheadline68">
+<h3 id="orgheadline68"><span class="section-number-3">15.3</span> Definindo uma Função</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def say_hi():
+    print('Hi')
+
+say_hi()
+</code></pre>
+</div>
+
+<pre class="example">
+Hi
+</pre>
+
+
+</section>
+<section id="slide-orgheadline69">
+<h3 id="orgheadline69"><span class="section-number-3">15.4</span> Argumentos obrigatórios e opcionais</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def sum3(a, b=0, c=0):
+    resp = a + b + c
+    return resp
+
+a = 10
+b = 5
+c = 12
+
+print(sum3(a, b, c))
+print(sum3(a, b))
+print(sum3(a))
+print(sum3(5, c=7))
+</code></pre>
+</div>
+
+<pre class="example">
+27
+15
+10
+12
+</pre>
+
+</section>
+<section id="slide-orgheadline70">
+<h3 id="orgheadline70"><span class="section-number-3">15.5</span> Lambda</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >sum3_lambda = lambda a, b=0, c=0: a+b+c
+print(sum3_lambda(1, 3, 5))
+</code></pre>
+</div>
+
+<pre class="example">
+9
+</pre>
+</section>
+<section id="slide-orgheadline71">
+<h3 id="orgheadline71"><span class="section-number-3">15.6</span> Operadores Lógicos e Booleanos</h3>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">Maior que</td>
+<td class="org-left">&gt;</td>
+</tr>
+
+<tr>
+<td class="org-left">Menor que</td>
+<td class="org-left">&lt;</td>
+</tr>
+
+<tr>
+<td class="org-left">Igual a</td>
+<td class="org-left">==</td>
+</tr>
+
+<tr>
+<td class="org-left">Maior ou igual a</td>
+<td class="org-left">&gt;=</td>
+</tr>
+
+<tr>
+<td class="org-left">Menor ou igual a</td>
+<td class="org-left">&lt;=</td>
+</tr>
+
+<tr>
+<td class="org-left">Diferente de</td>
+<td class="org-left">!=</td>
+</tr>
+
+<tr>
+<td class="org-left">Verdadeiro</td>
+<td class="org-left">True</td>
+</tr>
+
+<tr>
+<td class="org-left">Falso</td>
+<td class="org-left">False</td>
+</tr>
+
+<tr>
+<td class="org-left">E</td>
+<td class="org-left">and</td>
+</tr>
+
+<tr>
+<td class="org-left">Ou</td>
+<td class="org-left">or</td>
+</tr>
+
+<tr>
+<td class="org-left">Não (Negação)</td>
+<td class="org-left">not</td>
+</tr>
+</tbody>
+</table>
+
+
+</section>
+<section id="slide-orgheadline72">
+<h3 id="orgheadline72"><span class="section-number-3">15.7</span> Operadores Lógicos e Booleanos - Exemplos</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >print(3>2)
+print(10!=4)
+print(3>=10)
+</code></pre>
+</div>
+
+<pre class="example">
+True
+True
+False
+</pre>
+
+<div class="org-src-container">
+
+<pre><code class="python" >print(True or False)
+print(True and False)
+print(not True)
+</code></pre>
+</div>
+
+<pre class="example">
+True
+False
+False
+</pre>
+</section>
+<section id="slide-orgheadline73">
+<h3 id="orgheadline73"><span class="section-number-3">15.8</span> Definido uma condicional</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def ver_dig_if(n):
+    if n < 10:
+        print('Número de 1 dígito')
+    elif n < 100:
+        print('Número de 2 dígitos')
+    else:
+        print('Número de 3 dígitos ou mais')
+
+ver_dig_if(10)
+</code></pre>
+</div>
+
+<pre class="example">
+... ... ... ... ... ... &gt;&gt;&gt; Número de 2 dígitos
+</pre>
+
+<div class="org-src-container">
+
+<pre><code class="python" >def ver_dig_str(n):
+    n = str(n)
+    n_len = len(n)
+    if len == 1:
+        print('Número de 1 dígito')
+    else: 
+        print('Número de %d dígitos' % n_len)
+
+ver_dig_str(1245012369126401)
+</code></pre>
+</div>
+
+<pre class="example">
+... ... ... ... ... ... &gt;&gt;&gt; Número de 16 dígitos
+</pre>
+</section>
+<section id="slide-orgheadline74">
+<h3 id="orgheadline74"><span class="section-number-3">15.9</span> Exercício 1</h3>
+<p>
+Faça uma função que toma uma lista de notas e calcula a média.
+</p>
+
+<pre class="example">
+media([10, 9, 8]) &gt;&gt;&gt; Resultado:  9
+</pre>
+</section>
+<section id="slide-orgheadline75">
+<h3 id="orgheadline75"><span class="section-number-3">15.10</span> Resolução 1</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def media(l):
+    m = sum(l)/len(l)
+    return m
+
+print(media([10, 9, 8]))
+</code></pre>
+</div>
+
+<pre class="example">
+9.0
+</pre>
+</section>
+<section id="slide-orgheadline76">
+<h3 id="orgheadline76"><span class="section-number-3">15.11</span> Excercício 2</h3>
+<p>
+Faça uma função que toma uma média e calcula a menção (padrão UnB).
+</p>
+
+<pre class="example">
+média &gt;= 9: SS
+9 &gt; média &gt;= 7: MS
+7 &gt; média &gt;= 5: MM
+5 &gt; média &gt;= 3: MI
+3 &gt; média &gt;= 0.1: II
+média == 0: SR
+</pre>
+</section>
+<section id="slide-orgheadline77">
+<h3 id="orgheadline77"><span class="section-number-3">15.12</span> Resolução 2</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def menc(media):
+    if media >= 9:
+        return 'SS'
+    elif media >= 7:
+        return 'MS'
+    elif media >= 5:
+        return 'MM'
+    elif media >= 3:
+        return 'MI'
+    elif media >= 0.1:
+        return 'II'
+    else:
+        return 'SR'
+
+print(menc(9.5))
+print(menc(7.3))
+print(menc(6.1))
+print(menc(4.9))
+print(menc(1.3))
+print(menc(0))
+</code></pre>
+</div>
+
+<pre class="example">
+SS
+MS
+MM
+MI
+II
+SR
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline90">
+<h2 id="orgheadline90"><span class="section-number-2">16</span> Loops</h2>
+<p>
+Loops for tomam uma sequência como 'argumento' e percorrem a lista até o fim. A sequência pode ser uma lista, tuple, dicionário, range ou string
+</p>
+
+<p>
+Loops while tomam um booleano (Verdadeiro ou Falso) como argumento e continaum rodando equanto o booleano for True. Booleano pode ser interpretado como uma 'condição'
+</p>
+</section>
+<section id="slide-orgheadline79">
+<h3 id="orgheadline79"><span class="section-number-3">16.1</span> Definindo um loop for</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Soma dos números de 1 a 10
+n = 10
+s = 0
+
+for i in range(1, n+1, 1): 
+    s = s + i   
+
+print('A soma dos números de 1 a {} é {}'.format(n, s))
+</code></pre>
+</div>
+
+<pre class="example">
+A soma dos números de 1 a 10 é 55
+</pre>
+
+</section>
+<section id="slide-orgheadline80">
+<h3 id="orgheadline80"><span class="section-number-3">16.2</span> Definindo um loop while</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Descobre quando a soma dos números de 1 a inifinito passa de 40
+
+senha = 'SENC16'
+tentativa = ''
+
+while tentativa != senha: 
+    tentativa = input('Digite a senha: ')
+
+print('Senha Correta!')
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline81">
+<h3 id="orgheadline81"><span class="section-number-3">16.3</span> Loop em dicionário - Chaves</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >d = {'node1': (0, 0), 'node2': (1, 1), 'node3': (2, 0)}
+for key in d:
+    print(key)
+
+print()
+for key in d.keys():
+    print(key)
+</code></pre>
+</div>
+
+<pre class="example">
+node2
+node1
+node3
+
+node2
+node1
+node3
+</pre>
+</section>
+<section id="slide-orgheadline82">
+<h3 id="orgheadline82"><span class="section-number-3">16.4</span> Loop em dicionário - Valores</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >d = {'node1': (0, 0), 'node2': (1, 1), 'node3': (2, 0)}
+for value in d.values():
+    print(value)
+
+print()
+for key in d:
+    print(d[key])
+</code></pre>
+</div>
+
+<pre class="example">
+(2, 0)
+(1, 1)
+(0, 0)
+
+(2, 0)
+(1, 1)
+(0, 0)
+</pre>
+
+</section>
+<section id="slide-orgheadline83">
+<h3 id="orgheadline83"><span class="section-number-3">16.5</span> Loop em dicionário - Melhor Método</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >d = {'node1': (0, 0), 'node2': (1, 1), 'node3': (2, 0)}
+
+for key, value in d.items():
+    print('{}:{}'.format(key, value))
+</code></pre>
+</div>
+
+<pre class="example">
+node2:(1, 1)
+node1:(0, 0)
+node3:(2, 0)
+</pre>
+
+</section>
+<section id="slide-orgheadline84">
+<h3 id="orgheadline84"><span class="section-number-3">16.6</span> Loop em listas</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >x = [1, 2, 3, 4, 5]
+y = []
+
+for i in x:
+    y.append(i**2)
+
+print(y)
+</code></pre>
+</div>
+
+<pre class="example">
+[1, 4, 9, 16, 25]
+</pre>
+</section>
+<section id="slide-orgheadline85">
+<h3 id="orgheadline85"><span class="section-number-3">16.7</span> Loops utilizando range(len(l))</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >aposta = [2, 7, 21, 33, 49, 60]
+resultado = [1, 14, 21, 32, 33, 34]
+
+corretos = 0
+for i in range(len(aposta)):
+    if aposta[i] in resultado:
+        corretos += 1
+        print('{}o  número correto ({})'.format(i+1, aposta[i]))
+
+print('{} números corretos'.format(corretos))
+</code></pre>
+</div>
+
+<pre class="example">
+3o  número correto (21)
+4o  número correto (33)
+2 números corretos
+</pre>
+</section>
+<section id="slide-orgheadline86">
+<h3 id="orgheadline86"><span class="section-number-3">16.8</span> Loops usando enumerate</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >aposta = [2, 7, 21, 33, 49, 60]
+resultado = [1, 14, 21, 32, 33, 34]
+
+corretos = 0
+for i, j  in enumerate(aposta):
+    if j in resultado:
+        corretos += 1
+        print('{}o  número correto ({})'.format(i+1, j))
+
+print('{} números corretos'.format(corretos))
+</code></pre>
+</div>
+
+<pre class="example">
+3o  número correto (21)
+4o  número correto (33)
+2 números corretos
+</pre>
+
+</section>
+<section id="slide-orgheadline87">
+<h3 id="orgheadline87"><span class="section-number-3">16.9</span> List comprehension</h3>
+<p>
+Em python é possível gerar listas com uma espécie de loop interno chamado list comprehension. Essa funcionalidade é bastante útil quando se quer gerar vetores que seguem uma tendência lógica.
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="python" >list_c = [x**2 for x in range(10)]
+print(list_c)
+</code></pre>
+</div>
+
+<pre class="example">
+[0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+</pre>
+</section>
+<section id="slide-orgheadline88">
+<h3 id="orgheadline88"><span class="section-number-3">16.10</span> Exercício</h3>
+<p>
+Reescrever o código do exercício de listas utilizando loops e funções. (Escrever nomes, matrículas e notas em listas, calcular as médias e imprimir formatado. ) 
+</p>
+
+<pre class="example">
+Alunos: Alice, Beatriz, Carlos
+Matrículas: 1, 2, 3
+Notas:
+  - Alice: 10, 7.5, 8.3
+  - Beatriz: 8.8, 5.6, 5.0
+  - Carlos: 3.4, 6.6, 7.7
+</pre>
+
+<pre class="example">
+Aluno    Matrícula    Média
+Alice    1            M1
+Beatriz  2            M2
+Carlos   3            M3
+</pre>
+</section>
+<section id="slide-orgheadline89">
+<h3 id="orgheadline89"><span class="section-number-3">16.11</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >alunos = ['Alice', 'Beatriz', 'Carlos']
+mats = [1, 2, 3]
+notas = [[10, 7.5, 8.3], [8.8, 5.6, 5.0], [3.4, 6.6, 7.7]]
+
+def media(l):
+    m = sum(l)/len(l)
+    return m
+
+medias = []
+
+for i in notas:
+    medias.append(media(i))
+
+print('Alunos\t\tMatrícula\tMédia')
+
+"""
+for i in range(len(alunos)): 
+    print('{}\t\t{}\t\t{:.1f}'.format(alunos[i], mats[i], medias[i]))
+"""
+
+for i, j, k in zip(alunos, mats, medias):
+    print('{}\t\t{}\t\t{:.1f}'.format(i, j, k))
+</code></pre>
+</div>
+
+<pre class="example">
+Alunos          Matrícula       Média
+Alice           1               8.6
+Beatriz         2               6.5
+Carlos          3               5.9
+</pre>
+
+</section>
+</section>
+<section>
+<section id="slide-orgheadline95">
+<h2 id="orgheadline95"><span class="section-number-2">17</span> Exercícios Extras</h2>
+<div class="outline-text-2" id="text-17">
+</div></section>
+<section id="slide-orgheadline91">
+<h3 id="orgheadline91"><span class="section-number-3">17.1</span> Planilha de Menções</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >alunos = ['andré', 'beatriz', 'clara', 'diego', 'eduarda', 'fábio']
+matriculas = [1600182, 1600945, 1600111, 1600321, 1600699, 1600099]
+notas = [(2, 8, 6), (3, 10, 10), (9, 9, 8), (5, 5, 5), (10, 9, 8), (1, 2, 2)]
+medias =[]
+mencoes = []
+
+# Imprimir os nomes, matrículas e notas formatados, colocando cada aluno em uma linha
+# Criar função que calcula a média dos alunos e adiciona na variável médias
+# Criar função que calcula a menção final dos alunos e adiciona em menção
+# Imprimir Nome, Matrícula e Menção formatados, colocando cada aluno em um linha
+</code></pre>
+</div>
+
+</section>
+<section id="slide-orgheadline92">
+<h3 id="orgheadline92"><span class="section-number-3">17.2</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Parte 1
+for i in range(len(alunos)):
+    print('{}\t{}\t{}'.format(alunos[i], matriculas[i], notas[i]))
+
+# Parte 2
+def calc_med(notas):
+    for i in notas:
+        medias.append(sum(i)/3)
+    print(medias)
+
+calc_med(notas)
+
+# Parte 3
+def calc_menc(medias):
+    for i in medias:
+        if i >= 9:
+            mencoes.append('SS')
+        elif i >= 7:
+            mencoes.append('MS')
+        elif i >= 5:
+            mencoes.append('MM')
+        elif i >= 3:
+            mencoes.append('MI')
+        elif i > 0:
+            mencoes.append('II')
+        else: 
+            mencoes.append('SR')
+    # print(mencoes)
+
+calc_menc(medias)
+
+# Parte 4
+for i in range(len(alunos)):
+    print('{}\t{}\t{}'.format(alunos[i], matriculas[i], mencoes[i]))
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline93">
+<h3 id="orgheadline93"><span class="section-number-3">17.3</span> Filtragem de Listas</h3>
+<p>
+Use list comprehension para acessar valores da lista L<sub>alpha</sub> que sejam maiores que 5 e armazená-los na lista L<sub>beta</sub>
+</p>
+
+<div class="org-src-container">
+
+<pre><code class="python" >L_alpha = [0, 2, 3, 5, 5, 6, 12, 43, 100]
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline94">
+<h3 id="orgheadline94"><span class="section-number-3">17.4</span> Resolução</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >L_alpha = [0, 2, 3, 5, 5, 6, 12, 43, 100]
+L_beta = [x for x in L_alpha if x > 5]
+print(L_beta)
+</code></pre>
+</div>
+
+<pre class="example">
+[6, 12, 43, 100]
+</pre>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

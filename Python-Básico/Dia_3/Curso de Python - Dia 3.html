@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"/>
+<title>Curso de Python - Dia 3</title>
+<meta name="author" content="(Mario Raul Freitas)"/>
+<style type="text/css">
+.underline { text-decoration: underline; }
+</style>
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/reveal.css"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/css/theme/solarized.css" id="theme"/>
+
+<link rel="stylesheet" href="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/css/zenburn.css"/>
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+    if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'http://cdn.jsdelivr.net/reveal.js/3.0.0/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+    }
+</script>
+</head>
+<body>
+<div class="reveal">
+<div class="slides">
+<section id="sec-title-slide"><h1 class="title">Curso de Python - Dia 3</h1><h2 class="author">Mario Raul Freitas</h2><p class="date">Created: 2016-08-10 Wed 22:37</p>
+</section>
+
+<section>
+<section id="slide-orgheadline4">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> CivCom Diagram Calculator</h2>
+<div class="outline-text-2" id="text-1">
+</div></section>
+<section id="slide-orgheadline1">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Motivação</h3>
+<p>
+Vamos começar aplicando os conhecimentos adquiridos nos últimos dois dias eum um projeto de Engenharia Civil.
+</p>
+
+<p>
+Nosso objetivo é criar um programa que toma as características de uma viga biengastada sob efeito de um carregamento e calcula o diagrama de momento fletor.
+</p>
+
+<p>
+A ideia é criar um programa de análise estrutural simplificado.
+</p>
+</section>
+<section id="slide-orgheadline2">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Método de Solução</h3>
+<p>
+Utilizaremos as equações obtidas de forma analítica para calcular o momento em cada ponto.
+</p>
+
+<pre class="example">
+Carga Uniforme:
+m(x) = - q*L*L/2 + q*L*x/2 - q*x*x/2
+
+Carga Concentrada:
+m(x) = -q*L/8 + q*x/2   (para x = 0 a L/2)
+</pre>
+</section>
+<section id="slide-orgheadline3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Aspectos Computacionais</h3>
+<ol>
+<li>Criar uma classe para a viga</li>
+<li>Colocar os parâmetros no init</li>
+<li>Criar um método que calcula o momento e plota
+<ol>
+<li>Calcular o momento em cada ponto da viga (loop) usando a equalção analítica</li>
+<li>Plotar Momento x Comprimento da viga usando pyplot</li>
+
+</ol></li>
+<li>Criar o objeto e chamar o método</li>
+
+</ol>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline6">
+<h2 id="orgheadline6"><span class="section-number-2">2</span> GUI</h2>
+<div class="outline-text-2" id="text-2">
+</div></section>
+<section id="slide-orgheadline5">
+<h3 id="orgheadline5"><span class="section-number-3">2.1</span> Main Window Vs Parent Widget Vs Child Widget</h3>
+
+<div class="figure">
+<p><img src="img/GUI/Calculadora_2016-08-04_21-43-00.JPG" alt="Calculadora_2016-08-04_21-43-00.JPG" />
+</p>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline17">
+<h2 id="orgheadline17"><span class="section-number-2">3</span> PyQt</h2>
+<div class="outline-text-2" id="text-3">
+</div></section>
+<section id="slide-orgheadline7">
+<h3 id="orgheadline7"><span class="section-number-3">3.1</span> Sobre o PyQt</h3>
+<p>
+Uma das melhores ferramentas para criar GUIs em Python
+</p>
+
+<p>
+Multiplataforma entre Windows, Linux e Mac
+</p>
+
+<p>
+Simples e intuitivo
+</p>
+</section>
+<section id="slide-orgheadline8">
+<h3 id="orgheadline8"><span class="section-number-3">3.2</span> Imports</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >from PyQt4 import QtGui
+import sys
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline9">
+<h3 id="orgheadline9"><span class="section-number-3">3.3</span> Main Function</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def main():
+    app = QtGui.QApplication(sys.argv)
+    GUI = MainWindow()
+    sys.exit(app.exec_())
+
+main()
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline10">
+<h3 id="orgheadline10"><span class="section-number-3">3.4</span> Class MainWindow</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >class MainWindow(QtGui.QMainWindow):
+    def __init__(self, parent=None):
+        super(MainWindow, self).__init__(parent)
+
+        self.show()
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline11">
+<h3 id="orgheadline11"><span class="section-number-3">3.5</span> MainWindow Parameters</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro do __init__ de MainWindow
+self.setGeometry(100, 100, 300, 400)
+self.setWindowTitle('Calculadora')
+self.setWindowIcon(QtGui.QIcon('icon_64.png'))
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline12">
+<h3 id="orgheadline12"><span class="section-number-3">3.6</span> MainWidget</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro do __init__ de MainWindow
+mainWidget = MainWidget(self)
+self.setCentralWidget(mainWidget)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline13">
+<h3 id="orgheadline13"><span class="section-number-3">3.7</span> Class MainWidget</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >class MainWidget(QtGui.QWidget):
+    def __init__(self, parent):
+        super(MainWidget, self).__init__(parent)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline14">
+<h3 id="orgheadline14"><span class="section-number-3">3.8</span> Child Widgets</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro do __init__ de MainWidget
+self.lb1 = QtGui.QLabel('Eu sou um texto', self)
+self.le1 = QtGui.QLineEdit(self)
+self.te1 = QtGui.QTextEdit(self)
+self.rbt1 = QtGui.QRadioButton('Option 1', self)
+self.cbt1 = QtGui.QCheckBox('C1', self)
+self.bt1 = QtGui.QPushButton('Sair', self)
+
+self.cbox = QtGui.QComboBox(self)
+self.cbox.addItem('Op1')
+self.cbox.addItem('Op2')
+
+self.lbl1.move(30, 50)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline15">
+<h3 id="orgheadline15"><span class="section-number-3">3.9</span> Layout</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro do __init__ de MainWidget
+layout = QtGui.QGridLayout()
+
+layout.addWidget(self.lb1, 1, 1)
+layout.addWidget(self.cbox, 1, 2)
+layout.addWidget(self.bt1, 2, 1, 1, 2)
+
+self.setLayout(layout)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline16">
+<h3 id="orgheadline16"><span class="section-number-3">3.10</span> Connect Button</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >    # Dentro do __init__ da MainWidget
+    self.bt1.clicked.connect(self.exit_gui)
+
+def exit_gui(self):
+        sys.exit()
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline21">
+<h2 id="orgheadline21"><span class="section-number-2">4</span> Calculadora</h2>
+<p>
+Vamos utilizar os conhecimentos adquiridos para construir uma calculadora capaz de realizar contas simples.
+</p>
+</section>
+<section id="slide-orgheadline18">
+<h3 id="orgheadline18"><span class="section-number-3">4.1</span> Calculadora - Objetos</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro do __init__ de MainWidget
+self.lb1 = QtGui.QLabel('Primeiro Numero: ', self)
+self.lb2 = QtGui.QLabel('Segundo Numero: ', self)
+self.lb3 = QtGui.QLabel('Resultado: ', self)
+        
+self.bt1 = QtGui.QPushButton('+', self)
+self.bt2 = QtGui.QPushButton('-', self)
+self.bt3 = QtGui.QPushButton('X', self)
+self.bt4 = QtGui.QPushButton('/', self)
+        
+self.le1 = QtGui.QLineEdit(self)
+self.le2 = QtGui.QLineEdit(self)
+self.le3 = QtGui.QLineEdit(self)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline19">
+<h3 id="orgheadline19"><span class="section-number-3">4.2</span> Calculadora - Layout</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro do __init__ de MainWidget
+layout = QtGui.QGridLayout()
+        
+layout.addWidget(self.lb1, 1, 1, 1, 2)
+layout.addWidget(self.le1, 1, 3, 1, 2)
+layout.addWidget(self.lb2, 2, 1, 1, 2)
+layout.addWidget(self.le2, 2, 3, 1, 2)
+layout.addWidget(self.bt1, 3, 1)
+layout.addWidget(self.bt2, 3, 2)
+layout.addWidget(self.bt3, 3, 3)
+layout.addWidget(self.bt4, 3, 4)
+layout.addWidget(self.lb3, 4, 1, 1, 2)
+layout.addWidget(self.le3, 4, 3, 1, 2)
+        
+self.setLayout(layout)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline20">
+<h3 id="orgheadline20"><span class="section-number-3">4.3</span> Calculadora - Connect</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >    # Dentro do __init__ de MainWidget
+    self.bt1.clicked.connect(self.mais)
+    self.bt2.clicked.connect(self.menos)
+    self.bt3.clicked.connect(self.vezes)
+    self.bt4.clicked.connect(self.div)
+
+def mais(self):
+    a = float(self.le1.text())
+    b = float(self.le2.text())
+    self.le3.setText(str(a+b))
+
+def menos(self):
+    a = float(self.le1.text())
+    b = float(self.le2.text())
+    self.le3.setText(str(a-b))
+
+def vezes(self):
+    a = float(self.le1.text())
+    b = float(self.le2.text())
+    self.le3.setText(str(a*b))
+
+def div(self):
+    a = float(self.le1.text())
+    b = float(self.le2.text())
+    self.le3.setText(str(a/b))
+</code></pre>
+</div>
+</section>
+</section>
+<section>
+<section id="slide-orgheadline33">
+<h2 id="orgheadline33"><span class="section-number-2">5</span> CivCom Diagram Calculator - GUI</h2>
+<div class="outline-text-2" id="text-5">
+</div></section>
+<section id="slide-orgheadline22">
+<h3 id="orgheadline22"><span class="section-number-3">5.1</span> Imports</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >from T09_Diagrams import Moment
+from PyQt4 import QtGui
+import sys
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline23">
+<h3 id="orgheadline23"><span class="section-number-3">5.2</span> Main Function</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def main():
+    app = QtGui.QApplication(sys.argv)
+    GUI = MainWindow()
+    sys.exit(app.exec_())
+
+if __name__ == '__main__':
+    main()
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline24">
+<h3 id="orgheadline24"><span class="section-number-3">5.3</span> MainWindow</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >class MainWindow(QtGui.QMainWindow): 
+    def __init__(self, parent=None):
+        super(MainWindow, self).__init__(parent)
+        
+        mainWidget = MainWidget(self)
+        self.setCentralWidget(mainWidget)
+
+        self.setGeometry(100, 100, 300, 400)
+        self.setWindowTitle('CivCom Diagram Calculator')
+        self.setWindowIcon(QtGui.QIcon('icon_64.png')
+ 
+        self.quit_act()
+        self.about_act()
+        self.menu_act() 
+     
+        self.show()
+        # self.showMaximized()
+        # self.showFullScreen()
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline25">
+<h3 id="orgheadline25"><span class="section-number-3">5.4</span> Quit Act()</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def quit_act(self):
+    self.quitAct = QtGui.QAction('Sair', self)
+    self.quitAct.setShortcut('Ctrl+Q')
+    self.quitAct.setStatusTip('Fecha o programa.')
+    self.quitAct.triggered.connect(sys.exit)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline26">
+<h3 id="orgheadline26"><span class="section-number-3">5.5</span> About Act()</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def about_act(self):
+    self.aboutmsg = QtGui.QMessageBox()
+    self.aboutmsg.setText('CivCom Diagram Calculator - Version 0.1')
+    self.aboutmsg.setInformativeText('Esse programa toma as variaveis de uma viga biengastada ' +
+                                  'e do carregamento sobre ela e gera os diagramas de momento ' +
+                                  'e deflexao da viga')
+    self.aboutmsg.setWindowTitle('CivCom Diagram Calculator')
+    self.aboutmsg.setIconPixmap(QtGui.QPixmap('logo-90.png')) 
+    
+    self.aboutAct = QtGui.QAction('Sobre', self)
+    self.aboutAct.setShortcut('F1')
+    self.aboutAct.setStatusTip('Mostra as informacoes do programa')
+    self.aboutAct.triggered.connect(self.aboutmsg.exec_)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline27">
+<h3 id="orgheadline27"><span class="section-number-3">5.6</span> Menu Act()</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def menu_act(self):
+    # Menus Principais
+    mainMenu = self.menuBar() 
+    fileMenu = mainMenu.addMenu('Arquivo')           
+    helpMenu = mainMenu.addMenu('Ajuda')                   
+    fileMenu.addAction(self.quitAct)                     
+    helpMenu.addAction(self.aboutAct)                  
+    self.statusBar()
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline28">
+<h3 id="orgheadline28"><span class="section-number-3">5.7</span> MainWidget</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >class MainWidget(QtGui.QWidget):                                                           
+    def __init__(self, parent):                                                     
+        super(MainWidget, self).__init__(parent)
+        
+        # Objetos
+        # Layout
+   
+    # Metodos
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline29">
+<h3 id="orgheadline29"><span class="section-number-3">5.8</span> Objetos</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro de __init__ de MainWidget
+self.lbl1 = QtGui.QLabel('Tipo de Carga: ')      
+
+self.dbtn = QtGui.QComboBox(self)
+self.dbtn.addItem('Uniforme')  
+self.dbtn.addItem('Concentrada')   
+
+self.lbl2 = QtGui.QLabel('Comprimento da Barra (m): ')
+
+self.ledit1 = QtGui.QLineEdit(self) 
+self.ledit1.setPlaceholderText('Digite o comprimento da barra aqui.')  
+
+self.lbl3 = QtGui.QLabel('Magnitude do Carregamento (kN ou kN/m): ')
+
+self.ledit2 = QtGui.QLineEdit(self)
+self.ledit2.setPlaceholderText('Digite a magnitude do carregamento aqui.')
+
+self.pshbtn1 = QtGui.QPushButton('Plotar Diagrama', self)
+self.pshbtn1.clicked.connect(self.calc_diagram)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline30">
+<h3 id="orgheadline30"><span class="section-number-3">5.9</span> Layout</h3>
+<div class="org-src-container">
+
+<pre><code class="python" ># Dentro de __init__ de MainWidget
+grid = QtGui.QGridLayout()      
+grid.addWidget(self.lbl1, 1, 1)    
+grid.addWidget(self.dbtn, 1, 2)     
+grid.addWidget(self.lbl2, 2, 1)                                      
+grid.addWidget(self.ledit1, 2, 2)                             
+grid.addWidget(self.lbl3, 3, 1)                                    
+grid.addWidget(self.ledit2, 3, 2)                                    
+grid.addWidget(self.pshbtn1, 4, 1, 1, 2)                  
+self.setLayout(grid)
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline31">
+<h3 id="orgheadline31"><span class="section-number-3">5.10</span> Calc Diagram()</h3>
+<div class="org-src-container">
+
+<pre><code class="python" >def calc_diagram(self):
+    ltype = self.dbtn.currentText()       
+    length = float(self.ledit1.text())   
+    magnitude = float(self.ledit2.text())   
+    moment_d = Moment(ltype, length, magnitude)
+    moment_d.plot_m_diagram()
+</code></pre>
+</div>
+</section>
+<section id="slide-orgheadline32">
+<h3 id="orgheadline32"><span class="section-number-3">5.11</span> COMO MELHORAR?</h3>
+<p>
+Outros Carregamentos
+</p>
+
+<p>
+Outros Apoios
+</p>
+
+<p>
+Calcular Deflexão
+</p>
+
+<p>
+Método das Diferenças Finitas
+</p>
+
+<p>
+Método dos Elementos Finitos
+</p>
+
+<p>
+Método da Rigidez Direta
+</p>
+</section>
+</section>
+</div>
+</div>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/lib/js/head.min.js"></script>
+<script src="http://cdn.jsdelivr.net/reveal.js/3.0.0/js/reveal.js"></script>
+
+<script>
+// Full list of configuration options available here:
+// https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+
+controls: true,
+progress: true,
+history: false,
+center: true,
+slideNumber: 'c',
+rollingLinks: false,
+keyboard: true,
+overview: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+transitionSpeed: 'default',
+multiplex: {
+    secret: '', // null if client
+    id: '', // id, obtained from socket.io server
+    url: '' // Location of socket.io server
+},
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+ { src: 'http://cdn.jsdelivr.net/reveal.js/3.0.0/plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }]
+});
+</script>
+</body>
+</html>

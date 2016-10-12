@@ -1,0 +1,114 @@
+## Dia 1 - B�sico ##
+
+1. O que ser� dado no curso (2 min)
+	- B�sico geral
+	- Pacotes Numpy e Matplotlib
+	- Aplica��es em Engenharia Civil
+	- Interfaces Gr�ficas
+
+2. Motivacional (5 min)
+	- O que � Python
+	- Quem usa Python
+	- Facilidade de Python
+	- Comunidade grande, ativa e criativa
+	- Grande quantidade de bibliotecas
+
+3. Como instalar Python e M�dulos (5 min)
+	- Python puro 3.5
+	- Pip install numpy
+	- Pip install matplotlib
+	- PyQt
+
+4. Print (3 min)
+	- Abrir IDLE
+	- Mostrar IDLE Shell e Editor
+	- Print('hello world') em ambos
+
+5. Input (2 min)
+	- Exemplo do nome e idade
+
+6. Strings (10 min)
+	- O que � uma vari�vel (caixa)
+	- Vari�veis em Python n�o s�o fixas
+	- String armazena sequ�ncia de caracteres (texto)
+	- Strings s�o imut�veis
+	- s1 = 'Isso � uma string'
+	- Formata��o de string
+		- %s
+		- s1 + s1
+		- .format()
+		- print(arg1, arg2, arg3)
+	- s1*3
+	- Slicing [start:stop:step]
+	- upper() / lower() / capitalize() / swapcase()
+
+7. Int/Float (10 min)
+	- ints s�o inteiros e floats s�o reais
+	- ints e floats s�o mut�veis (mas n�o importa)	
+	- i1 = 5
+	- f1 = 5.
+	- Mostrar print(f1, type(f1)) : type float
+	- Contas b�sicas no interpreter
+		- +
+		- -
+		- *
+		- /
+		- //
+		- %
+		- **
+	- Type() de opera��es entre ints e floats
+
+8. Lists/Tuples (15 min)
+	- T1 = (1, 2, 3, 4) / type()
+	- l1 = [1, 2, 3, 4] / type()
+	- Tuples N�O s�o mut�veis
+	- Lists s�o
+	- list(t1)
+	- tuple(l1)
+	- len(l1)
+	- l1.index()
+	- l1.append() >>> MUITO IMPORTANTE!!!
+	- l1.pop() / n�o existe um t1.pop() pois este n�o � mut�vel
+	- l1.reverse() / tamb�m pode ser feito com slice
+	- Slice funciona igual a string
+	- Como lists s�o mut�veis vc pode alterar um elemento individual de l1
+	- Explicar l�gica de fun��es e m�todos para objetos (i)mut�veis
+	- range()
+	- tuple(range)
+
+9. Dictionaries (10 min)
+	- d1 = {'azul': 'blue', 'rosa': 'pink', 'preto': 'black'} / type()
+	- d1['azul']
+	- Utilidade de utilizar dicion�rios ao inv�s de listas
+	- d1.keys()
+	- d1.values()
+
+10. def function()/ lambda / if..elif..esle (25 min)
+	- O que � e pra que serve uma fun��o
+		- Repeti��o
+		- M�dulos
+	- Documenta��o
+		- Import�ncia da documenta��o
+		- Como fazer documenta��o
+	- Fun��o com argumentos padr�es
+	- Lambda para fun��es simples
+	- Condicionais tornam fun��es mais �teis
+		- Gera a possibilidade de o computador tomar decis�es
+		- Bifurca��o no c�digo
+	- Fun��o com if
+
+11. For loop / While loop (18 min)
+	- For loop
+		- uso de range e range(len)
+	- While
+		- Diferen�a entre essa e o for
+		- TOMAR CUIDADO COM LOOPS INFINITOS
+	- Loops em listas ou tuples
+	- Loops em dicion�rios
+
+12. Exerc�cios (15 min)
+	- Print/input: nome, idade, matr�cula e formata��o
+	- listas: fazer duas listas de alunos/matr�culas e imprimir formatado
+	- dict: fazer dict de aluno/matr�culas e imprimir formatado
+	- def: somar n�meros seguidos
+	- lambda: somar n�meros seguidos
